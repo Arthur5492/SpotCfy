@@ -1,0 +1,11 @@
+/////////////////////////////////////TuizinsPiano/////////////////////////////////////
+
+1.Music Name:Careless Whisper
+
+2.Music Bpm:150
+
+3. Music Notes:
+E5 D5 A4 F4 E5 D5 A4 F4 C5 AS4 F4 D4 C5 AS4 F4 AS4 A4 F4 D4 AS4 A4 AS4 C4 D4 E4 F4 G4 A4 E5 D5 A4 F4 ; ;
+
+4.Tempo
+4 8 4 4 4 8 4 4 4 8 4 4 4 8 4 4 8 4 4 2 4 4 4 4 4 4 4 4 4 8 4 4 ; ;

@@ -1,0 +1,13 @@
+/////////////////////////////////////////////SpotCfy-Tuizin//////////////////////////////////////////////////////////////////////
+Name: Arthur Rodrigues
+Id:00
+Password:12345
+Premium:false
+
+Own Musics:27,32,44
+//Numero do vetor de musicas
+
+(For while instancia da classe com size)
+Playlists:
+Name:So as boas
+Musics: 22,32,44,21,53

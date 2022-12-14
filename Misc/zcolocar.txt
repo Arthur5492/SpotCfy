@@ -1,0 +1,17 @@
+Na parte de criçãode musicas menuzinho e uma parte dele aparece ultimas notas com tempos colocados
+
+Quando dar exit pela primeira vez cria um txt com Yes,
+proxima vez q entrar, tem a opção talk com algumas falas
+
+
+Save conta
+
+Preciso arrumar load user data no login e implementar no load all login os checks
+
+
+Fazer class musica
+
+Preciso saber como organizar hpps por pasta direito
+Colocar um slowing na musica
+
+Verificar pq não checa a ultima conta, e não joga no vetor Users(principais focos class Getacc e LoadUsersData)

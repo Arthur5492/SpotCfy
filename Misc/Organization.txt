@@ -1,0 +1,33 @@
+Índice:
+
+Troca de conteudo = --------------------------------------------------------------------------------
+Tópicos de cada Assunto = //
+Assuntos do mesmo conteúdo separados = ---
+Onde começa e termina um tópico com várias coisas = { entre chaves}
+
+
+
+
+//Pastas:
+menus:todos os ascii do "sistema", ex:menu, pagina de login
+---
+textos:Onde vai ficar todos os ASCIIS
+---
+Classes:{
+Box: Onde fica tudo, criacao de caixas, asciis, funcoes Miscelaneous
+---
+Mainmenu: Cria o Menu principal, e tem tudo dentro dele.
+---
+Login: Classe para o Login de usuário
+---
+Register: Classe de registração de usuário
+---
+LoadAccounts:Carrega todas as contas
+}
+--------------------------------------------------------------------------------
+Misc informations:
+
+//Fontes ASCII -utilizadas:
+Menu principal:
+Big
+---

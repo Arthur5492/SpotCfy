@@ -1,0 +1,11 @@
+/////////////////////////////////////TuizinsPiano/////////////////////////////////////
+
+1.Music Name:Caneta Azul
+
+2.Music Bpm:120
+
+3. Music Notes:
+A4 DS5 DS5 CS5 A4 0 A4 CS5 B4 A4 FS4 0 A4 B4 A4 A4 G4 G4 A4 B4 A4 A4 FS4 0 A4 DS5 DS5 CS5 A4 0 A4 CS5 B4 A4 FS4 0 A4 B4 A4 A4 G4 G4 A4 B4 A4 A4 FS4 ; ;
+
+4.Tempo
+8 8 8 4 4 8 8 8 8 4 4 8 8 8 8 2 8 8 8 8 8 4 4 8 8 8 8 4 4 8 8 8 8 4 4 8 8 8 8 2 8 8 8 8 8 4 4 ; ;
