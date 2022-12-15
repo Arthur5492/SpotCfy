@@ -31,31 +31,30 @@ GetCurrentDirectoryA(MAX_PATH, UserPath);
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-  // Loginzada.FirstLoginScreen();
-  // while(true)
-  // {
-  // // login:
-  // pair<bool,bool>LoginOptions = Loginzada.CompleteLogin();
-  // if(LoginOptions.first ==true && LoginOptions.second==true)
-  //   break;
-  //
-  //   else if(LoginOptions.first ==true && LoginOptions.second==false)
-  //     continue;
-  //       else if(LoginOptions.first == false)
-  //         if(Registration.CompleteRegister()==false) continue;
-  //           else continue;//Caso eu queria colocar algo mais
-  // }
-  //
-  // Main_menu = new Mainmenu(&Loginzada);//Get user data
-  // Main_menu->StartMain();
-  // while(true)
-  // {
-  //   if(Main_menu->CompleteMain()==6);
+  Loginzada.FirstLoginScreen();
+  while(true)
+  {
+  // login:
+  pair<bool,bool>LoginOptions = Loginzada.CompleteLogin();
+  if(LoginOptions.first ==true && LoginOptions.second==true)
+    break;
+
+    else if(LoginOptions.first ==true && LoginOptions.second==false)
+      continue;
+        else if(LoginOptions.first == false)
+          if(Registration.CompleteRegister()==false) continue;
+            else continue;//Caso eu queria colocar algo mais
+  }
+
+  Main_menu = new Mainmenu(&Loginzada);//Get user data
+  Main_menu->StartMain();
+  while(true)
+  {
+    if(Main_menu->CompleteMain()==6);
         c_Piano.ConstructMenu();
         c_Piano.Keys();
         // break;
-  // }
-
+      }
 
   // system("mode con: cols=30 lines=90");
   gotoxy.gotoxy(1,42);

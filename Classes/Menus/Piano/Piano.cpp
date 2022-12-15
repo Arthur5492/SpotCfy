@@ -350,7 +350,7 @@ void Piano::Keys()
         five.join();
       }
       ////A1
-      if(inter==116||ch==84)
+      if(inter==116||inter==84)
       {
         Music a1("piano/"+to_string(left)+"/zA.mp3","mp3","A1");
         thread t(&Piano::PlayCurrent,this,a1,multiple);
