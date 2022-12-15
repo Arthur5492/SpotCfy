@@ -20,18 +20,23 @@ void GetAcc::Load(int number)//Load all musics
       SelectLine(Account,5);
         Account>>m_premium;//Get if premium from txt
       ///
-      // SelectLine(Account,6);
-      //   while(getline(Account,tmp, ','))   //This is to find if user have musics
-      //   {
-      //     if (tmp==";")break;
-      //     if(tmp!="\n")
-      //     {
-      //       int intmsc = stoi(tmp);
-      //       m_ownmusics.push_back(intmsc);
-      //     }
-      //   }
+      SelectLine(Account,6);
+        while(getline(Account,tmp, ' '))   //This is to find if user have musics
+        {
+          if (tmp==";" || tmp==" ;")break;
+            if(tmp=="")break;
+            int intmsc = stoi(tmp);
+            m_ownmusics.push_back(intmsc);
+        }
+      ///
       SelectLine(Account,7);
         Account>>m_id;
+      ///
+      char myfriend;
+      Account.seekg(49,ios::beg);
+      Account>>myfriend;
+        if(myfriend == ':')
+          m_status = 1;
 
         tmp.clear();
       } else MessageBox(NULL, "Cannot open an Load music file", "Error", MB_ICONERROR | MB_OK);
@@ -40,7 +45,7 @@ void GetAcc::Load(int number)//Load all musics
 ////////////////////////////////////////////////////////////////////////////////////////////
 void GetAcc::SelectLine(ifstream& file,int line)
 {
-  file.seekg(std::ios::beg);
+  file.seekg(ios::beg);
     for(int i=0; i < line - 1; ++i)
     {
       file.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
@@ -66,21 +71,16 @@ void GetAcc::Create(int IDnumber, string name, string username, string password)
   AccCreate<<"Username:"<<username<<endl;
   AccCreate<<"Password:"<<password<<endl;
   AccCreate<<"Premium:0"<<endl;
-  AccCreate<<"Own Musics:"<<endl;
-  // AccCreate<<"Id:"<<stringid;
+  AccCreate<<"Own Musics: ; ;"<<endl;
+  AccCreate<<"Id:"<<IDnumber<<endl;
 
   AccCreate.close();
-
 }
 ////////////////////////////////////////////////////////////////////////////////////////////
-// void GetAcc::SelectLine(ofstream file, int line)
-// {
-//   for(size_t i=0;i<line-1;i++)
-//   {
-//     file<<endl;
-//   }
-// }
-////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 void GetAcc::IDMAX()
 {

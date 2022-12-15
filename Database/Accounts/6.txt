@@ -1,7 +1,7 @@
 //////////////////////////////////////////SpotCfy&Tuizin//////////////////////////////////////////////////////////////////////
-Name:Cyklo
-Username:geralt
-Password:12345678
+Name:fsaaf
+Username:lorenzo
+Password:ludmilla
 Premium:0
-Own Musics:
+Own Musics: ; ;
 Id:6

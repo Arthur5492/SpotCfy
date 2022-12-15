@@ -1,7 +1,7 @@
-Na parte de cri√ß√£ode musicas menuzinho e uma parte dele aparece ultimas notas com tempos colocados
+Na parte de criaÁ„o de musicas menuzinho e uma parte dele aparece ultimas notas com tempos colocados
 
 Quando dar exit pela primeira vez cria um txt com Yes,
-proxima vez q entrar, tem a op√ß√£o talk com algumas falas
+proxima vez q entrar, tem a opÁ„o talk com algumas falas
 
 
 Save conta
@@ -14,4 +14,4 @@ Fazer class musica
 Preciso saber como organizar hpps por pasta direito
 Colocar um slowing na musica
 
-Verificar pq n√£o checa a ultima conta, e n√£o joga no vetor Users(principais focos class Getacc e LoadUsersData)
+Verificar pq n√£o checa a ultima conta, e n„o joga no vetor Users(principais focos class Getacc e LoadUsersData)

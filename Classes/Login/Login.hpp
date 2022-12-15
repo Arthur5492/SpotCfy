@@ -11,8 +11,8 @@ class Login : public Box
     string gets_password;//Senha que o usuario digitar
 
     //Database Data
-    vector<GetAcc> Users;//Get user data
     GetAcc LoadAccount;
+    vector<GetAcc> Users;//Get users data
     vector<string> m_AllUsers;
     vector<string>m_AllPass;
 

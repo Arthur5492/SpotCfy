@@ -17,9 +17,9 @@ void Box::LineOfLines(int n)//Faz as ponta da Box
 /////////////////////////////////////////////////////////////////////////
 void Box::MakeBox(int x,int y,int tall,int wdt)//Criar o Box
 {
-    gotoxy(x,y);//Onde vai comeÃ§ar o risco de cima da Box
+    gotoxy(x,y);//Onde vai começar o risco de cima da Box
     LineOfLines(wdt);//Cria o risco de cima
-    gotoxy(x,y+tall);//Onde comeÃ§a o risco de baixo
+    gotoxy(x,y+tall);//Onde começa o risco de baixo
     LineOfLines(wdt);//Risco de baixo
     for(int i=0;i<tall;i++)//Pra criar os lados
     {
@@ -37,7 +37,7 @@ void Box::MakeBox(int x,int y,int tall,int wdt)//Criar o Box
 void Box::MakeASCII(string Filename, int x, int y)//Colocas os ASCII
 {
   Filename = "Marcel/textos/"+Filename;
-  ifstream ascii(Filename);// Abre o arquivo comeÃ§ando pela pasta textos
+  ifstream ascii(Filename);// Abre o arquivo começando pela pasta textos
 
     if(ascii.good())//Se deu certo abrir o arquivo
     {
@@ -118,59 +118,10 @@ void Box::Talk(string Text,int milliseconds)
 }
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
-///Music Part
-// void Box::Play(string Name, string Playtype, int startvolume,string FormatType)
-// {
-//   char UserPath[MAX_PATH];
-//   GetCurrentDirectoryA(MAX_PATH, UserPath);///Get User Path
-//   string Path = UserPath;
-//   ///Open the Sound
-//   if (FormatType =="mp3")
-//     FormatType=" mpegvideo ";
-//       else FormatType=" waveaudio ";
-//   string open = "open C:\\Users\\arthu\\Documents\\BluePen\\Loucura\\Marcel\\sounds\\"+Name+ " type"+FormatType+"alias "+Name;//Set open mp3 name
-//   mciSendString(open.c_str(),NULL,0,NULL);
-//
-//   //Volumes
-//   string volume = "setaudio "+ Name + " volume to "+to_string(startvolume);
-//   mciSendString(volume.c_str(), NULL, 0, NULL);
-//
-//   //Play
-//   string play = "play " +Name+ " "+Playtype;//Set play mp3 name
-//   mciSendString(play.c_str(), NULL, 0, NULL);//Play the mp3
-//
-//   // cout<<play<<endl;
-// }
-// ////////////////////////////////////////////////////////////////////////////////////////////
-// void Box::PlayFunction(string Name,string Function)
-// {
-//   Function =Function+" ";
-//   string All = Function + Name;
-//   // cout<<All<<endl;
-//   mciSendString(All.c_str(), NULL, 0, NULL);
-// }
-// ////////////////////////////////////////////////////////////////////////////////////////////
-// int Box::Volume(string Name, bool updown,size_t atual)
-// {
-//   if(updown == true)
-//   {
-//     if(atual<1000)
-//       atual+=100;
-//     else cout<<"Max value achieved"<<endl;
-//   }
-//     if(updown==false)
-//     {
-//       if(atual>0)
-//         atual-=100;
-//           else cout<<"Min value achieved"<<endl;
-//     }
-//     string newvalue = "setaudio " + Name + " volume to "+to_string(atual);
-//       mciSendString(newvalue.c_str(), NULL, 0, NULL);
-//       // cout<<newvalue<<endl;
-//       return atual;
-// }
-// ////////////////////////////////////////////////////////////////////////////////////////////
-// // int Box::CalmStop(string Name)
-// // {
-// //
-// // }
+void Box::Textcolor(string text, int color,int x, int y)
+{
+  Color(color);
+  gotoxy(x,y);
+  cout<<text;
+  Color(7);
+}

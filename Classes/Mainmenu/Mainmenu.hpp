@@ -35,10 +35,10 @@ public:
   ////////////////////////////////////////////////////////////////////////////////////////////
   ///Mainmenu Parts
   //Header
-  void Logo();//CONFIGURAÃ‡Ã•ES DA LOGO SPOCFY
-  void Search();//CONFIGURAÃ‡Ã•ES DA PARTE SEARCH
-  void PublicPlaylist(); //PUBLIC PLAYLIST CONFIGS, Ã‰ pra mostrar as pastas com cada gÃªnero
-  void User();//CONFIGURAÃ‡Ã•ES DA PARTE USER DO HEADER
+  void Logo();//CONFIGURAÇÕES DA LOGO SPOCFY
+  void Search();//CONFIGURAÇÕES DA PARTE SEARCH
+  void PublicPlaylist(); //PUBLIC PLAYLIST CONFIGS, são pra mostrar as pastas com cada gênero
+  void User();//CONFIGURAÇÕES DA PARTE USER DO HEADER
 
   //Bottom:
   void RandomMusic();
@@ -104,6 +104,7 @@ public:
           }
       }
     }
+    MainMenuMusic->Slowing("down",0);
     return WichSelected;
   }
 

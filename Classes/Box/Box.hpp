@@ -18,6 +18,7 @@
 #include <cstdlib>
 #include <sstream>
 #include <cctype>
+#include <locale.h>
 
 #include "../Music\Music.cpp"//Pra toca musica
 #include "../../Misc/definenotes.hpp" //Transforma frequencia das notas em string ex: A4 = 440
@@ -48,12 +49,12 @@ protected:
   public:
     Box()
     {
-      // select->LoadMusic();
-      // error->LoadMusic();
-      // option->LoadMusic();
-      // sucefull->LoadMusic();
-      // talk->LoadMusic();
-      // entered->LoadMusic();
+      select->LoadMusic();
+      error->LoadMusic();
+      option->LoadMusic();
+      sucefull->LoadMusic();
+      talk->LoadMusic();
+      entered->LoadMusic();
     };
     ~Box()
     {
@@ -90,6 +91,8 @@ protected:
     ///
     void Talk(string Text);//String printa char por char e com som
     void Talk(string Text,int milliseconds);//Velocidade que printa o char
+    ///
+    void Textcolor(string text, int color, int x, int y);//Texto com cor, criei só depois de fazer metade do codigo sem :/
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 

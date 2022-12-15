@@ -16,10 +16,10 @@ class GetAcc
     string      m_name;//Read name
     string      m_username;//Read Username
     string      m_password;//Read password
-    int         m_id;//Read id
-    int         m_premium;//Read if premium
-
-    int         m_idmax;//Read how many id we have currently
+    int         m_id=0;//Read id
+    int         m_premium=0;//Read if premium
+    int         m_status=0;
+    int         m_idmax=0;//Read how many id we have currently
   public:
     GetAcc(){};
     ~GetAcc(){};

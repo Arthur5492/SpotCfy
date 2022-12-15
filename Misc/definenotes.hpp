@@ -1,7 +1,7 @@
 #ifndef DEFINENOTES_HPP
 #define DEFINENOTES_HPP
 
-//Facilitar a inserÃ§Ã£o de notas
+//Facilitar a inserção de notas
 #define B0  31
 #define C1  33
 #define CS1 35

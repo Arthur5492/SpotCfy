@@ -16,7 +16,8 @@ public:
 
   void ConstructMenu();
   void TopText();
-  void SideText();
+  void LeftSideText();
+  void RightSideText();
 
   void Keys();
 
@@ -28,6 +29,8 @@ public:
   void PickKey(string Note,int x1);//Para Nota acidentada(# e b)
 
   void PlayCurrent(Music at,bool multiplenotes);//Play music at note
+
+  void Transpose(int num, int x, int y);//Change color of transposed notes
 
 };
 

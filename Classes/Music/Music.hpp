@@ -14,11 +14,11 @@ class Music
 {
 
 protected:
-  char UserPath[MAX_PATH];//To store user full path até onde foi rodado o main.cpp
+  char UserPath[MAX_PATH];//To store user full path de onde foi rodado o main.cpp
 
   string MusicPath;
   string m_FormatType;
-  string MusicAlias;//Nome definido na fuction Load para usar nas outras funções
+  string MusicAlias;//Nome definido na fuction Load para usar nas outras fun��es
 
   int m_volume; //Volume atual da música
 public:

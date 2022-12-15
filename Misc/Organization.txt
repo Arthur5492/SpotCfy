@@ -1,9 +1,9 @@
 √çndice:
 
 Troca de conteudo = --------------------------------------------------------------------------------
-T√≥picos de cada Assunto = //
-Assuntos do mesmo conte√∫do separados = ---
-Onde come√ßa e termina um t√≥pico com v√°rias coisas = { entre chaves}
+TÛpicos de cada Assunto = //
+Assuntos do mesmo conte˙do separados = ---
+Onde comeÁa e termina um t√≥pico com v·rias coisas = { entre chaves}
 
 
 

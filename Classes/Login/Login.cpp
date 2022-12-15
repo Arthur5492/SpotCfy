@@ -93,13 +93,13 @@ void Login::Inputs()
         select->Play("wait from 0",500);
 }
 ////////////////////////////////////////////////////////////////////////////////////////////
-  pair<bool,bool> Login::SelectOption()//Pair first √© para verificar se clicou em login ou register
-                                       //Pair second √© para ver se deu certo a checagem de login
+  pair<bool,bool> Login::SelectOption()//Pair first È para verificar se clicou em login ou register
+                                       //Pair second È para ver se deu certo a checagem de login
   {
     bool loginbutao = true; //Get users choice, starts in login screen
     bool registerbutao = false;//Get users choice
     LoginButton(true);//Ja starta o LoginButton como primeira opcao
-      while(true)//At√© o usuario lcicar algo
+      while(true)//para o usuario clicar algo
       {
         if(_kbhit())//Se clicar algo
           {
@@ -152,8 +152,11 @@ void Login::Inputs()
 ////////////////////////////////////////////////////////////////////////////////////////////
 void Login::LoadUsersData()
 {
+  m_AllPass.erase(m_AllPass.begin(),m_AllPass.end());
+  m_AllUsers.erase(m_AllUsers.begin(),m_AllUsers.end());
+  Users.erase(Users.begin(),Users.end());
   Users.resize(LoadAccount.GetIDMAX()+1);
-  for(size_t i=0;i<LoadAccount.GetIDMAX();i++)
+  for(size_t i=0;i<=LoadAccount.GetIDMAX();i++)
   {
     Users.at(i).Load(i);
     string temp =  Users.at(i).GetUsername();
@@ -165,8 +168,8 @@ void Login::LoadUsersData()
 ////////////////////////////////////////////////////////////////////////////////////////////
 bool Login::CheckUser()
 {
-  // int Total_ID = LoadAccount.GetIDMAX();
-  for(size_t i=0;i<LoadAccount.GetIDMAX();i++)
+
+  for(size_t i=0;i<=LoadAccount.GetIDMAX();i++)
   {
     if(m_AllUsers.at(i)==gets_username && m_AllPass.at(i)==gets_password)
     {
