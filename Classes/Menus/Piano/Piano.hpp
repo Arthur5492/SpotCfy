@@ -10,16 +10,17 @@ private:
 
   string left;
   string right;
+
 public:
-  Piano(){};
+  Piano(){};//I dont need
   ~Piano(){};
 
-  void ConstructMenu();
-  void TopText();
-  void LeftSideText();
-  void RightSideText();
+  void ConstructAll();// Executa todos as telas e dps o piano na mesma funcao
+  void TopText();//Textos de cima
+  void LeftSideText();//Textos do lado esquerdo
+  void RightSideText();//Textos do lado direito
 
-  void Keys();
+  void Keys();//This is where the while and _kbhit are, to check if keys are pressed
 
   void Key(string CurrentKey,int x1,int x2,int x3,int x4,int x5);//Toca nota natural
 

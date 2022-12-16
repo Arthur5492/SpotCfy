@@ -1,31 +1,47 @@
 #include "Piano.hpp"
 
-void Piano::ConstructMenu()
+void Piano::ConstructAll()
 {
+  Music PianoMenu("soundtracks\\pianomenu.mp3","mp3","pianomenu");
+  PianoMenu.LoadMusic();
+  PianoMenu.Play("from 0",700);
   system("cls");
   Color(3);
   BigMenu();
   Color(7);
   TopText();
+  _getch();
+  select->Play("from 0",200);
+  ///
   LeftSideText();
+  gotoxy(98,11);
+  _getch();
+  select->Play("from 0",200);
+  ///
   RightSideText();
+  gotoxy(98,11);
+  _getch();
+  PianoMenu.Slowing("down",0);
+  entered->Play("from 0",200);
+  ///
   MakeASCII("Mainmenus/Piano/piano.txt",48,18);
+  Keys();
 }
 //////////////////////////////////////////////////////////////////////////////////
 void Piano::TopText()
 {
-
   Color(1);
   MakeBox(2,1,5,164);
   Color(7);
-    gotoxy(2,3);
-      cout<<"   Hello and welcome to Tuizins piano!!, here you can play any notes from 2 different scales(left and right),everything was made in c++ with mp3 piano notes using";
-    gotoxy(2,4);
-      cout<<" mciSendString to play them, there is two threads(not including main thread) running in each note, so... you need a nice pc to run hehe,";
-      Color(2);
-      cout<<"now read the tutorial below";
-      Color(7);
+      Textcolor("   Hello and welcome to Tuizins piano!!, here you can play any notes from 2 different scales(left and right),everything was made in c++ with mp3 piano notes using",
+      7,2,3);
+      Textcolor(" mciSendString to play them, there is two threads(not including main thread) running in each note, so... you need a nice pc to run hehe",
+      7,2,4);
 
+      Textcolor("Now press anything to see the tutorial",2,66,5);
+      _getch();
+      select->Play("from 0",200);
+////////////////////////////////////////////////////////////////////////////////////////////
     Color(4);
     MakeBox(2,7,10,164);
 
@@ -35,18 +51,18 @@ void Piano::TopText()
 
     Textcolor("Just press left shift + 1-7 number",7,12,12);
 
-    Textcolor("You can test it, now!!",2,16,13);
+    Textcolor("You can test it, later!!",2,16,13);
 
     Textcolor("You can select wich scale you want in right side",7,115,11);
     Textcolor("Just press right shift + 1-7 number",7,122,12);
-    Textcolor("You can test it, now!!",2,129,13);
-
-    Textcolor("Watch Side boxes for key instructions",3,65,11);
+    Textcolor("You can test it, later!!",2,129,13);
 
 
-      Textcolor("Press   to switch single notes or multiple notes",7,60,16);
-      Textcolor("single notes",2,78,16);
-      Textcolor("P",3,66,16);
+
+      Textcolor("Press   to switch single notes or multiple notes(later)",3,58,16);
+      Textcolor("P",3,64,16);
+
+      Textcolor("Press anything to continue!!",3,70,11);
 }
 //////////////////////////////////////////////////////////////////////////////////
 void Piano::LeftSideText()
@@ -187,7 +203,7 @@ Textcolor("///////",3,144,29);
 Textcolor("l  = ",2,144,30);
 Textcolor("F#",7,149,30);
 
-Textcolor("ç  = ",2,144,31);
+Textcolor("ï¿½  = ",2,144,31);
 Textcolor("G#",7,149,31);
 
 Textcolor("]  = ",2,144,32);
@@ -229,6 +245,12 @@ void Piano::Keys()
   bool multiple=false;
   int left= 4;
   int right = 5;
+  Textcolor("                                     ",7,70,11);
+  Textcolor("Press ESC to exit! :(",4,75,11);
+
+  Textcolor("single notes",2,76,16);
+  Textcolor("        ",7,106,16);
+  gotoxy(80,27);
   while(true)
   {
 
@@ -237,6 +259,11 @@ void Piano::Keys()
       int shift = GetKeyState(VK_SHIFT);
       size_t inter = _getch();
 
+
+      if(inter == 27)//If ESC pressed
+      {
+        break;
+      }
       //If ! pressed
       if(inter == 33)
       {
@@ -250,7 +277,7 @@ void Piano::Keys()
 
       }
       ///
-      if(inter == 64)
+      if(inter == 64)//If @ pressed
       {
 
         char newright=_getch();
@@ -261,23 +288,23 @@ void Piano::Keys()
         }
       }
       ///
-      if(inter==112 || inter==80)
+      if(inter==112 || inter==80)//If p or P pressed
       {
         multiple = !multiple;
         if (multiple==true)
         {
-          Textcolor("single notes",7,78,16);
-          Textcolor("multiple notes",2,94,16);
+          Textcolor("single notes",3,76,16);
+          Textcolor("multiple notes",2,92,16);
         }
           else
           {
-            Textcolor("multiple notes",7,94,16);
-            Textcolor("single notes",2,78,16);
+            Textcolor("single notes",2,76,16);
+            Textcolor("multiple notes",3,92,16);
           }
       }
 
       //// C1
-      if(inter==9)
+      if(inter==9)// if TAB pressed
       {
         Music c1("piano/"+to_string(left)+"/C.mp3","mp3","C1");
         thread tab(&Piano::PlayCurrent,this,c1,multiple);
@@ -286,7 +313,7 @@ void Piano::Keys()
         tab.join();
       }
       /////CS1
-      if(inter==49)
+      if(inter==49)//1 pressed
       {
         Music cs1("piano/"+to_string(left)+"/CS.mp3","mp3","CS1");
         thread one(&Piano::PlayCurrent,this,cs1,multiple);
@@ -294,7 +321,7 @@ void Piano::Keys()
         one.join();
       }
       /////D1
-      if(inter==113||inter==81)
+      if(inter==113||inter==81)//q or Q pressed
       {
         Music d1("piano/"+to_string(left)+"/D.mp3","mp3","D1");
         thread q(&Piano::PlayCurrent,this,d1,multiple);
@@ -302,7 +329,7 @@ void Piano::Keys()
         q.join();
       }
       ////DS1
-      if(inter==50)
+      if(inter==50)// 2 pressed
       {
         Music ds1("piano/"+to_string(left)+"/DS.mp3","mp3","DS1");
         thread two(&Piano::PlayCurrent,this,ds1,multiple);
@@ -310,7 +337,7 @@ void Piano::Keys()
         two.join();
       }
       ////E1
-      if(inter==119||inter==87)
+      if(inter==119||inter==87)//w or W pressed
       {
         Music e1("piano/"+to_string(left)+"/E.mp3","mp3","E1");
         thread w(&Piano::PlayCurrent,this,e1,multiple);
@@ -318,7 +345,7 @@ void Piano::Keys()
         w.join();
       }
       ////F1
-      if(inter==101||inter==69)
+      if(inter==101||inter==69)// e or E pressed
       {
         Music f1("piano/"+to_string(left)+"/F.mp3","mp3","F1");
         thread e(&Piano::PlayCurrent,this,f1,multiple);
@@ -326,7 +353,7 @@ void Piano::Keys()
         e.join();
       }
       ////FS1
-      if(inter==52)
+      if(inter==52)// 4 pressed
       {
         Music fs1("piano/"+to_string(left)+"/FS.mp3","mp3","FS1");
         thread four(&Piano::PlayCurrent,this,fs1,multiple);
@@ -334,7 +361,7 @@ void Piano::Keys()
         four.join();
       }
       ////G1
-      if(inter==114||inter==82)
+      if(inter==114||inter==82)//r or R pressed
       {
         Music g1("piano/"+to_string(left)+"/G.mp3","mp3","G1");
         thread r(&Piano::PlayCurrent,this,g1,multiple);
