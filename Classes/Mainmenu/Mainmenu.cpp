@@ -231,8 +231,8 @@ void Mainmenu::Options()
           sleep(3);
           Message("You",7,true,500);Wait(400);
           Message("Can",7,true,700);Wait(400);
-          Message("Never",7,true,900);Wait(400);
-          Message("Leave",7,true,2000);Wait(400);
+          Message("Never",7,true,700);Wait(400);
+          Message("Leave",7,true,500);Wait(400);
           sleep(2);
           gotoxy(2,18);
           cout<<"               ";

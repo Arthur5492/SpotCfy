@@ -70,13 +70,27 @@ public:
 
 
   void StartMain();
-  int CompleteMain()//Complete Menu
+  int CompleteMain(bool opened_again)//Complete Menu
   {
+    WichSelected =0;
+    AnyOpen = false;
+    m_option1 = ' ';//Guarda qual tecla foi clicada
+    m_selected =' ';
+    if(opened_again)
+    {
+      system("cls");
+      RandomSoundtrack();
+      BigMenu();
+        //Set every Open to false
+      CompleteHeader();//Header
+      CompleteBottom();//Bottom
+      Message("Welcome again my brother, select a 1-7 option ;D",2,true);
+    }
     while(true)//Sempre verifica a opcao do usuario
     {
       if(AnyOpen==true)break;//If any file got opened, stop
 
-      WichSelected =0;
+      WichSelected = 0;
 
       if(_kbhit())//Se alguma tecla for clicada
       {
@@ -104,7 +118,7 @@ public:
           }
       }
     }
-    MainMenuMusic->Slowing("down",0);
+    if(WichSelected!=3) MainMenuMusic->Slowing("down",0);
     return WichSelected;
   }
 

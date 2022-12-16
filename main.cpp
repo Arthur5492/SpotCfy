@@ -1,7 +1,7 @@
 #include <fstream>
 #include <vector>
 
-#include "Classes/Menus/Piano/Piano.cpp"
+#include "Classes/Menus/User/User.cpp"
 // #include "Classes/Register/Register.cpp"
 // #include "Classes/GetAcc/GetAcc.cpp"
 // #include "Classes/Login/Login.cpp"
@@ -22,6 +22,7 @@ GetCurrentDirectoryA(MAX_PATH, UserPath);
   Register Registration;
   Mainmenu *Main_menu;
   Piano c_Piano;
+  User *Usuario;
 
 //MISC FUNCTIONS TO USE IN MAIN
   Box gotoxy;//To use gotoxy here
@@ -48,23 +49,33 @@ GetCurrentDirectoryA(MAX_PATH, UserPath);
 
   Main_menu = new Mainmenu(&Loginzada);//Get user data
   Main_menu->StartMain();
-  while(true)
+  bool second_time_opened=false;
+  // while(true)
   {
-    if(Main_menu->CompleteMain()==6);
-        c_Piano.ConstructMenu();
-        c_Piano.Keys();
-        // break;
-      }
+    int option = Main_menu->CompleteMain(second_time_opened);
+
+    if(option==3)
+    {
+      Usuario = new User(&Loginzada);
+      Usuario->CompleteScreen();
+    }
+
+    if(option==6)
+      c_Piano.ConstructAll();
+
+    if(second_time_opened==false)
+      second_time_opened= !second_time_opened;
+  }
 
   // system("mode con: cols=30 lines=90");
-  gotoxy.gotoxy(1,42);
+  gotoxy.gotoxy(1,40);
 
 
 ////////////////////////////////////////////////////////////////////////////////////
   ////Destructors
   //Classes
   delete Main_menu;
-  //Deleting sys sounds
+  delete Usuario;
 
   Sys_sounds.~Box();
 

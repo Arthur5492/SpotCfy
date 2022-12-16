@@ -38,7 +38,7 @@ void Piano::TopText()
       Textcolor(" mciSendString to play them, there is two threads(not including main thread) running in each note, so... you need a nice pc to run hehe",
       7,2,4);
 
-      Textcolor("Now press anything to see the tutorial",2,66,5);
+      Textcolor("Now press anything to see the tutorial",2,63,5);
       _getch();
       select->Play("from 0",200);
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -268,7 +268,6 @@ void Piano::Keys()
       if(inter == 33)
       {
         char newleft=_getch();
-        cout<<newleft;
         if(newleft>=49 && newleft<=55)
         {
           left=newleft-48;
