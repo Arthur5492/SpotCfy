@@ -1,4 +1,7 @@
 //////////////////////////////////////////SpotCfy&Tuizin//////////////////////////////////////////////////////////////////////
-Users that we already have:9
-Remember, start counting from user 0 :D so 10 lovely users!
-Congratulations SpotCfy!!
+Name:guarita
+Username:GuaresiG
+Password:12345678
+Premium:0
+Own Musics: ; ;
+Id:9

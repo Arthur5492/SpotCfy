@@ -18,7 +18,18 @@ public:
   ~User(){};
 
   void CompleteScreen();//Complete Screen
-  void UserBox();//Userbox screen
+  void UserBox();//User box
+  void Exit();//To exit User menu
+
+  void Name();
+  void Username();
+  void Password();
+  void Premium();
+  void PremiumQuestion();
+
+  void YesNo_Box(bool Yes_No,bool hide);
+
+
 
 
 };

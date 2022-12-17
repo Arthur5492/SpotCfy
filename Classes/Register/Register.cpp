@@ -26,11 +26,14 @@ void Register::Name()
   {
     get_name=SafeCin("Name:",3,get_name,83,19);//Title, Color title, variable,x and y position
     select->Play("wait from 0",500);
-      if (get_name.length()==0 ||get_name=="/"||get_name=="@" ||get_name=="~")
+      if (get_name.length()==0 ||get_name=="/"||get_name=="@" ||get_name=="~"||get_name==" ")
       {
         Message("Please insert a valid name",4,true);
         continue;
       }
+
+    if(get_name=="  ")
+      get_name=="Anonymous";
       break;
   }
 
@@ -60,6 +63,12 @@ void Register::Password()//Password part
       sleep(3);
       continue;
     }
+      else if(get_password.find(' ')!=string::npos)
+        {
+          Message("We don't like SPACES here in password",4,true);
+          sleep(2);
+          continue;
+        }
   break;
   }
 }
@@ -165,12 +174,20 @@ void Register::CheckUsernameEqual()
   {
       get_username=SafeCin("Username:",3,get_username,83,24);//Title, Color title, variable,x and y position
       select->Play("wait from 0",500);
-        if(find(m_AllUsers.begin(),m_AllUsers.end(),get_username)!=m_AllUsers.end())
+      if(get_username.length()==0 ||get_username=="/"||get_username=="@" ||get_username=="~"||get_username==" ")
         {
-          Message("This username is already used!",4,1,true);
+          Message("Please insert a valid Username",4,true);
           sleep(3);
+          Message("a UNIQUE username:",2,true); 
           continue;
-        } else break;
+        }
+          else if(find(m_AllUsers.begin(),m_AllUsers.end(),get_username)!=m_AllUsers.end())
+          {
+            Message("This username is already used!",4,1,true);
+            sleep(3);
+            continue;
+          }
+        break;
   }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////

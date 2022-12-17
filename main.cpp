@@ -66,8 +66,8 @@ GetCurrentDirectoryA(MAX_PATH, UserPath);
     if(second_time_opened==false)
       second_time_opened= !second_time_opened;
   }
-
-  // system("mode con: cols=30 lines=90");
+  
+  // // // system("mode con: cols=30 lines=90");
   gotoxy.gotoxy(1,40);
 
 

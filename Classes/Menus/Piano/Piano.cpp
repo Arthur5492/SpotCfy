@@ -203,7 +203,7 @@ Textcolor("///////",3,144,29);
 Textcolor("l  = ",2,144,30);
 Textcolor("F#",7,149,30);
 
-Textcolor("�  = ",2,144,31);
+Textcolor("ç = ",2,144,31);
 Textcolor("G#",7,149,31);
 
 Textcolor("]  = ",2,144,32);

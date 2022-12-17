@@ -93,8 +93,8 @@ void Login::Inputs()
         select->Play("wait from 0",500);
 }
 ////////////////////////////////////////////////////////////////////////////////////////////
-  pair<bool,bool> Login::SelectOption()//Pair first é para verificar se clicou em login ou register
-                                       //Pair second é para ver se deu certo a checagem de login
+  pair<bool,bool> Login::SelectOption()//Pair first ï¿½ para verificar se clicou em login ou register
+                                       //Pair second ï¿½ para ver se deu certo a checagem de login
   {
     bool loginbutao = true; //Get users choice, starts in login screen
     bool registerbutao = false;//Get users choice
@@ -103,8 +103,7 @@ void Login::Inputs()
       {
         if(_kbhit())//Se clicar algo
           {
-            int c=0;//Variavel pra pegar o butao
-            c = _getch();//Pega o botao q o usuario clicou
+            int c=_getch();//Variavel pra pegar o butao
               if(c==ENTER)//Se usuario der enter
               {
                 if (loginbutao==true)//Se estiver no botao login
