@@ -26,13 +26,17 @@ class Login : public Box
     string m_password;
     int m_id;
     int m_premium;
+    int m_status;
+
     vector<int>m_ownmusics;
 
     //Soundtracks
-    Music *LoginMusic = new Music("soundtracks\\loginzada.mp3","mp3","login");
+    Music *LoginMusic;
   public:
     Login(){};
-    ~Login(){};
+    ~Login(){
+      delete LoginMusic;
+    }
 ////////////////////////////////////////////////////////////////////////////////////////////
     //Creation menu parts
     void Logo();//CRia logo
@@ -50,9 +54,11 @@ class Login : public Box
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
   ///Database
-  void LoadUsersData();
-  void SelectAccount();
+  bool LoadUsersData();
+  void SelectAccount(size_t i);
   bool CheckUser();
+  //Account Changes
+  void Modify();
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
     //Ful created menu
@@ -67,29 +73,56 @@ class Login : public Box
         cout<<"Welcome to SpotCfy!! \\o/";
         OptionsBox();
 
-              Message("Press enter to Select Login or Register",3,10,true);
-              sleep(1);
-              select->Play("wait from 0",800);
-              pair<bool,bool> option = SelectOption();
-              if (option.first==false)//Se clicou em sair
-               return make_pair(false,false);
+              if(m_status!=1)
+              {
+                Message("Press enter to Select Login or Register",3,10,true);
+                select->Play("from 0",800);
+                pair<bool,bool> option = SelectOption();
+                if (option.first==false)//Se clicou em sair
+                 return make_pair(false,false);
 
-                else if(option.first == true && option.second==true)//Se clicou em Login e deu certo
+                  else if(option.first == true && option.second==true)//Se clicou em Login e deu certo
+                    return make_pair(true,true);
+
+                      else if (option.first==true && option.second==false)//Se clicou em login e deu errado
+                        return make_pair(true,false);
+
+              return make_pair(false,false);
+              }
+                else
+                {
+                  Message("Hi :), i tought i would never see you again",3,12,true);
+                  _getch();
+                  stagelight->Play("from 0",800);
+                  system("cls");
+                  LoginMusic->Slowing("down",0);
+                  delete LoginMusic;
                   return make_pair(true,true);
+                }
 
-                    else if (option.first==true && option.second==false)//Se clicou em login e deu errado
-                      return make_pair(true,false);
-            return make_pair(false,false);
     }
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
     //Getters
-    string GetName(){return m_Name; } ;
-    string GetUsername(){return m_Username; } ;
-    string GetPassword(){return m_password;} ;
-    int GetID(){return m_id; } ;
-    int GetPremium(){return m_premium;} ;
-    vector<int> Get_OwnMusics(){return m_ownmusics;} ;
+    string GetName(){return m_Name; }
+    string GetUsername(){return m_Username; }
+    string GetPassword(){return m_password;}
+    int GetID(){return m_id; }
+    int GetPremium(){return m_premium;}
+    vector<int> Get_OwnMusics(){return m_ownmusics;}
+    int GetStatus(){return m_status;}
 
+    //Setters
+    void TurnPremium()
+    {
+      m_premium=1;
+      LoadAccount.Modify(m_id,m_Name,m_Username,m_password,m_premium,m_status);
+    }
+
+    void Friend()
+    {
+      m_status = 1;
+      LoadAccount.Modify(m_id,m_Name,m_Username,m_password,m_premium,m_status);
+    }
 };
 #endif

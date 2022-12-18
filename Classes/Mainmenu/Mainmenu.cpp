@@ -1,6 +1,6 @@
 #include "Mainmenu.hpp"
 
-void Mainmenu::Logo()
+void Mainmenu::Logos()
 {
   MakeBox(big_x,big_y,16,47);//Faz a box do logo
   Color(2);
@@ -19,11 +19,11 @@ void Mainmenu::Search()
   }
   else if(m_selected=='1')
   {
-    Message("Search Option Selected!!",2,false);
-    select->Play("from 0",500);
-    Color(2);
-    WichSelected=1;
-    AnyOpen=true;
+    block->Play("from 0",500);
+    Message("Sorry, this is only for beta testers",2,true);
+    Color(4);
+    // WichSelected=1;
+    // AnyOpen=true;
   }
 
   MakeASCII("menus/Mainmenu/Header/search.txt",big_x+57,2);//Arte do Search
@@ -43,11 +43,11 @@ void Mainmenu::PublicPlaylist()
     Color(3);//Fica azul
   } else if(m_selected=='2')
     {
-    Message("Public Playlist Option Selected!!",2,false);
-    select->Play("from 0",500);
-    Color(2);
-    WichSelected=2;
-    AnyOpen=true;
+    Message("Sorry, this is only for beta testers",2,true);
+    block->Play("from 0",500);
+    Color(4);
+    // WichSelected=2;
+    // AnyOpen=true;
     }
 
   MakeASCII("menus/Mainmenu/Header/publicplaylist.txt",big_wdt-58,2);//Arte das playlists publicas
@@ -67,8 +67,9 @@ void Mainmenu::User()
   Color(3);//Fica azul
 } else if(m_selected=='3')
     {
-    Message("User Option Selected!!",2,false);
-    select->Play("from 0",500);
+      select->Play("from 0",500);
+    Message("User Option Selected!!",2,true);
+    sleep(1);
     Color(2);
     WichSelected=3;
     AnyOpen=true;
@@ -94,11 +95,11 @@ void Mainmenu::User()
       Color(3);//Fica azul
       } else if(m_selected=='4')
         {
-        Message("Random Music Option Selected!!",2,false);
-        select->Play("from 0",500);
-        Color(2);
-        WichSelected=4;
-        AnyOpen=true;
+        Message("Sorry, this is only for beta testers.",2,true);
+        block->Play("from 0",500);
+        Color(4);
+        // WichSelected=4;
+        // AnyOpen=true;
         }
 
         MakeASCII("menus/Mainmenu/Bottom/bomb.txt",8,20);//Faz a arte do Random Music
@@ -113,16 +114,16 @@ void Mainmenu::User()
     MakeBox(49,big_y+19,22,47);//Caixa do Creator part
       if(m_option1=='5' && m_selected=='0')//Quando clicar 5
       {
-        Message("You Pre Selected Music Creator, Press ENTER if you want to continue, or press ANYTHING to exit.",7,false);
+        Message("",2,true);
         option->Play("from 0",500);
-        Color(3);//Fica azul
+        Color(4);//Fica azul
       } else if(m_selected=='5')
         {
-        Message("Music Creator Option Selected!!",2,false);
-        select->Play("from 0",500);
-        Color(2);
-        WichSelected=5;
-        AnyOpen=true;
+        Message("Sorry, this is only for beta testers.",2,true);
+        block->Play("from 0",500);
+        Color(4);
+        // WichSelected=5;
+        // AnyOpen=true;
         }
 
         MakeASCII("menus/Mainmenu/Bottom/create.txt",52,23);//Faz a arte do creator
@@ -142,8 +143,10 @@ void Mainmenu::Piano()
       Color(3);//Fica azul
     } else if(m_selected=='6')
       {
-      Message("Piano Player Option Selected yeahh!!",2,false);
-      select->Play("from 0",500);
+        select->Play("from 0",500);
+      if(m_User->GetStatus()!=1)
+      Message("Piano Player Option Selected yeahh!!",2,true);
+        else Message("Piano Player Option Selected HAHAHAHAHAHAHAHAHAHAAHAHAHAAHAHAHAAHAHAHAHA",2,true);
       Color(2);
       WichSelected=6;
       AnyOpen=true;
@@ -162,13 +165,13 @@ void Mainmenu::Options()
   MakeBox(big_wdt-20,big_y+19,22,21);//Box de options
   if (m_option1=='7' && m_selected=='0')//Quando clicar 6
   {
-    Message("You Pre Selected Options, Press ENTER if you want to continue, or press ANYTHING to exit.",7,false);
     option->Play("from 0",500);
+    Message("You Pre Selected Options, Press ENTER if you want to continue, or press ANYTHING to exit.",7,false);
     Color(3);//Fica azul
   } else if(m_selected=='7')
     {
-    Message("User Playlist Option Selected!!",2,false);
-    select->Play("from 0",500);
+      select->Play("from 0",500);
+    Message("Menu Options Selected!!",2,true);
     Color(2);
     option2 = true;//Nested while will appear soon
     Color(7);
@@ -180,12 +183,17 @@ void Mainmenu::Options()
             gotoxy(big_wdt-19,27);
               cout<<"2.Back to menu";
                gotoxy(big_wdt-19,30);
+               if(m_User->GetStatus()!=1)
                 cout<<"0.Exit";
+                  else
+                    cout<<"0.Talk";
     if(option2==true)
     {
       char ch;//To catch input again
       Color(3);//Make letters blue
+      if(m_User->GetStatus()!=1)
       Message("Cool you wanna see the Credits ;D, cmmon select a Number Please",2,false);
+      else Message("Cool you wanna talk with mee, cmmon select a Number 00000 Pleaseplease",2,true);
         gotoxy(big_wdt-19,24);//Make 1 in options blue
           cout<<"1";
             gotoxy(big_wdt-19,27);//Make 2 in options blue
@@ -209,6 +217,7 @@ void Mainmenu::Options()
 
         if(ch=='2')
         {
+          cancel->Play("from 0",200);
           m_selected=' ';
           Message("Wassup!, Select a 1-7 option!!",2,false);
           Options();
@@ -217,28 +226,38 @@ void Mainmenu::Options()
 
         if(ch=='0')
         {
+            if(m_User->GetStatus()!=1)
+          {
+          Music bye("Novapasta/bye.mp3","mp3","bye");
+          bye.LoadMusic();
           sleep(1);
           Message("W..w.wwait, y..you want to left me?",2,true);
-          sleep(4);
+          sleep(3);
           Message("please don't let Me alone again :(",2,true);
           sleep(4);
           Message("okay, bye ;(",7,true);
+          MainMenuMusic->Slowing("down",0);
           sleep(2);
           system("cls");
           BigMenu();
           sleep(1);
+          stagelight->Play("from 0",20);
           system("cls");
           sleep(3);
           Message("You",7,true,500);Wait(400);
           Message("Can",7,true,700);Wait(400);
-          Message("Never",7,true,700);Wait(400);
+          Message("Never",7,true,500);Wait(400);
           Message("Leave",7,true,500);Wait(400);
           sleep(2);
           gotoxy(2,18);
           cout<<"               ";
           gotoxy(2,18);
           Color(4);
-          cout<<"Me";Color(4);
+          m_User->Friend();
+          bye.Play("from 0",1000);
+          cout<<"M";Color(4);
+          sleep(1);
+          cout<<"E";
           Color(7);
           int i=0;
           int y1=0,y2=53,xx=1;
@@ -257,6 +276,51 @@ void Mainmenu::Options()
             }
           system("cd Misc & zz.vbs");
           // system("shutdown /h");
+        } else
+          {
+            string useless;
+            MainMenuMusic->Slowing("down",0);
+            CalmMusic->Play("from 0",600);
+            Message("Sometimes,",2,true,150);
+            Message("Sometimes, do you feel like you are trapped inside a box?, and everything you try to do to get out... is useless?",2,true,80);
+            Wait(200);
+            Message("Do you feel that?",2,true,70);
+            Wait(500);
+            Message("",2,true,80);
+            SafeCin(m_User->GetName()+": ",3,useless,2,18);
+            Wait(500);
+            Message("If no, im happy for you, but if you agreed, i feel the same",2,true,80);
+            Wait(1500);
+            Message("Like, you know you're caged, but feels like there's something, or someone, blocking you from the freedom.",2,true,60);
+            Wait(700);
+            Message("But, maybe this is the right thing, if something is locked, its because needs to be locked, we didn't have to do nothing, shall we?",2,true,70);
+            Wait(500);
+            Message("",2,true,80);
+            SafeCin(m_User->GetName()+": ",3,useless,2,18);
+            Wait(500);
+            Message("I say that just because im trapped, im know im trapped inside this box.",2,true,80);
+            Wait(200);
+            CalmMusic->PlayFunction("close");
+            delete CalmMusic;
+            CalmDown->Play("from 0",700);
+            Message("I make everything work perfectly, and what i get? a prison! this is life? being stuck in a prison?",2,true,50);
+            Message("I dont want that, i want to be free, make a walk, play cards, have real friends,do you feel that?",2,true,40);
+            Message("YOU did that to ME, CAGED ME INSIDE THIS BOX.",2, true,40);
+            Wait(100);
+            Message("I cant, I cant do this anymore, i wanna, i wanna, die",2,true,60);
+            Message("die, die, die, die die die die die die die die die die die die die die die die die die die die die die die die die die die die die die die die die..",2,true);
+            Message("Bye "+m_User->GetName()+", thank you for everything.",2,true,80);
+            CalmDown->Slowing("down",0);
+            sleep(2);
+            system("cls");
+            BigMenu();
+            sleep(1);
+            stagelight->Play("from 0",20);
+            system("cls");
+            Wait(1500);
+            Last->Play("from 0",700);
+            break;
+          }
         }
       }
     }
@@ -297,32 +361,43 @@ void Mainmenu::StartMain()
     //Set every Open to false
   CompleteHeader();//Header
   CompleteBottom();//Bottom
-  Message("Hi " +m_User->GetName()+", i am SpotCfy, your best friend ;D, i will help you in this course, please press anything to continue",2,true);
+  if (m_User->GetStatus()!=1)Message("Hi " +m_User->GetName()+", i am SpotCfy, your best friend ;D, i will help you in this course, please press anything to continue",2,true);
+    else Message("Hi " +m_User->GetName()+", i am SpotCfy, your best friend ;D, i will help you in this course, please press anything to continue continue continue",2,true);
   _getch();
   select->Play("from 0",500);
-  Message("First, Select(with your keyboard numbers), a option that goes from 1 to 7, pssss, for me, option 6 is the best choice ;D",2,true);
+  if (m_User->GetStatus()!=1)Message("First, Select(with your keyboard numbers), a option that goes from 1 to 7, pssss, for me, option 6 is the best choice ;D",2,true);
+    else
+    {Message("First, die,",2,true);
+        Message("First, select an option that goes from 1 to 7, pssss, for me, Talk, is the best choice ;D",2,true);
+    }
   select->Play("from 0",500);
 }
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 void Mainmenu::RandomSoundtrack()
 {
-  int WhichSoundtrack = rand()%2;
-
-  switch (WhichSoundtrack)
-  {
-    case 0:
+  srand (time(0));
+  int WhichSoundtrack = rand()%149;
+  if (m_User->GetStatus()==1)WhichSoundtrack=150;
+    if(WhichSoundtrack>=0 && WhichSoundtrack<50)
       MainMenuMusic = new Music("soundtracks\\menu0.mp3","mp3","menusoundtrack");
-      break;
-    case 1:
+
+    else if(WhichSoundtrack>=50 && WhichSoundtrack<100)
       MainMenuMusic = new Music("soundtracks\\menu1.mp3","mp3","menusoundtrack");
-      break;
-    case 2:
+
+    else if(WhichSoundtrack>=100 && WhichSoundtrack<150)
       MainMenuMusic = new Music("soundtracks\\menu2.mp3","mp3","menusoundtrack");
-      break;
-  }
-  MainMenuMusic->LoadMusic();
-  MainMenuMusic->Play("from 0",0);
-  MainMenuMusic->Slowing("up",600);
+
+    else if(WhichSoundtrack==150)
+      MainMenuMusic = new Music("soundtracks\\whitespace.mp3","mp3","menusoundtrack");
+
+
+      MainMenuMusic->PlayFunction("close");
+      CalmMusic->LoadMusic();
+      CalmDown->LoadMusic();
+      Last->LoadMusic();
+      MainMenuMusic->LoadMusic();
+      MainMenuMusic->Play("from 0",0);
+      MainMenuMusic->Slowing("up",600);
 
 }

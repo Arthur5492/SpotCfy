@@ -3,7 +3,6 @@
 
 // #include "../Box/Box.cpp"
 #include "../Login/Login.cpp"
-
 class Mainmenu : public Box
 {
  protected:
@@ -18,9 +17,12 @@ class Mainmenu : public Box
 
   //Soundtracks
   Music *MainMenuMusic;
-
+  Music *CalmMusic = new Music("soundtracks\\talktome.mp3","mp3","calmMusic");
+  Music *CalmDown = new Music("soundtracks\\talk2.mp3","mp3","calmDown");
+  Music *Last = new Music("soundtracks\\cry.mp3","mp3","last");
 void Message(string message, int color,bool talk);//Dar string na parte de input, Se fala for true fala pausado,
 void Message(string message, int color,bool talk, int slow);//slow varia a velocidade da fala
+
 ////////////////////////////////////////////////////////////////////////////////////////////
   protected:
     char m_option1; //Pre selecione o numero do usuario
@@ -31,11 +33,15 @@ void Message(string message, int color,bool talk, int slow);//slow varia a veloc
 ////////////////////////////////////////////////////////////////////////////////////////////
 public:
   Mainmenu(Login* User): m_User(User){};
-  ~Mainmenu(){};
+  ~Mainmenu(){
+    delete m_User;
+    delete MainMenuMusic;
+  }
+
   ////////////////////////////////////////////////////////////////////////////////////////////
   ///Mainmenu Parts
   //Header
-  void Logo();//CONFIGURAÇÕES DA LOGO SPOCFY
+  void Logos();//CONFIGURAÇÕES DA LOGO SPOCFY
   void Search();//CONFIGURAÇÕES DA PARTE SEARCH
   void PublicPlaylist(); //PUBLIC PLAYLIST CONFIGS, são pra mostrar as pastas com cada gênero
   void User();//CONFIGURAÇÕES DA PARTE USER DO HEADER
@@ -50,7 +56,7 @@ public:
   void CompleteHeader()//Complete Header
   {
     MakeBox(big_x+48,big_y,16,118);//Linha que fecha o Header
-    Logo();
+    Logos();
     User();
     Search();
     PublicPlaylist();
@@ -118,7 +124,8 @@ public:
           }
       }
     }
-    if(WichSelected!=3) MainMenuMusic->Slowing("down",0);
+    // if(m_User->GetStatus()==1)MainMenuMusic->Slowing("down",0);
+    if(WichSelected!=3 ) MainMenuMusic->Slowing("down",0);
     return WichSelected;
   }
 

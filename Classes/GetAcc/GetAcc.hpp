@@ -28,6 +28,8 @@ class GetAcc
 
     void Create(int IDnumber, string name, string username, string password);
     void SelectLine(ofstream& file, int line);
+
+    void Modify(int IDnumber, string name, string username, string password, int premium, int status);
 ////////////////////////////////////////////////////////////////////////////////////////////
     void IDMAX();//Check how many ids have already created
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -40,6 +42,7 @@ class GetAcc
     int         GetID(){return m_id;}//Get id
     int         GetPremium(){return m_premium;}//Get if premium
     int         GetIDMAX(){IDMAX(); return m_idmax; }
+    int         GetStatus(){return m_status;}
 
 };
 

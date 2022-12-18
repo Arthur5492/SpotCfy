@@ -2,52 +2,55 @@
 
 void User::CompleteScreen()
 {
-  bool yesno=true;
   UserBox();
   Exit();
 
   Name();
   Username();
   Password();
-  Premium();
+  bool question = Premium();//Se true, n„o mostra mais nada
+  bool yesno=true;//true: ComeÁa com o da esquerda / false: o da direita
 
 while(true)
-{
-  YesNo_Box(yesno,true);
+ {
+   if(question==false)YesNo_Box(yesno,false);
     int key = _getch();
 
     if(key==27)
     {
       break;
     }
-    if(key==ENTER)
+    if(question==false)
     {
+      if(key==ENTER)
+        {
         if(yesno==true)
         {
-          select->Play("from 0",500);
-
+          question=true;
+          PremiumCourse(yesno);
         }
-          else
+            else
+            {
+              select->Play("from 0",500);
+              YesNo_Box(yesno,true);
+              Message("Okay :(",3,true);
+              question=true;
+            }
+        }
+          else if(key ==KEY_LEFT)
           {
-            select->Play("from 0",500);
-            Message("Okay :(",3,true);
-
+            yesno = true;
+            option->Play("from 0",200);
+            YesNo_Box(yesno,false);
           }
+            else if(key ==KEY_RIGHT)
+            {
+              yesno = false;
+              option->Play("from 0",200);
+              YesNo_Box(yesno,false);
+            }
     }
-    else if(key ==KEY_LEFT)
-    {
-      yesno = true;
-      option->Play("from 0",200);
-      YesNo_Box(yesno,true);
-    }
-      else if(key ==KEY_RIGHT)
-      {
-        yesno = false;
-        option->Play("from 0",200);
-        YesNo_Box(yesno,true);
-      }
-
-  }
+ }
 }
 
 void User::UserBox()
@@ -63,8 +66,6 @@ void User::UserBox()
   MakeBox(1,0,13,48);
   MakeASCII("Mainmenus/User/SpotCfy.txt",2,1);
   Color(7);
-
-
 }
 /////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
@@ -92,7 +93,7 @@ void User::Password()
     cout<<AtualUser->GetPassword();
 }
 
-void User::Premium()
+bool User::Premium()
 {
   Color(1);
   MakeBox(82,32,3,46);
@@ -100,17 +101,22 @@ void User::Premium()
     if(AtualUser->GetPremium()==0)
     {
       cout<<"Not premium";
-      // sleep(1);
+      sleep(2);
       select->Play("from 0",300);
-      Message("Want to become a premium member?",2,3,true);
+      Message("Heyy!,Wanna become a premium member?",2,3,true);
+      sleep(1);
+      return false;
     }
         else cout<<"Premium member!!";
+        if(AtualUser->GetStatus()==1)
+          Textcolor("You are my premium best friend :D :D:D:D:D:D:D:D",2,98,34);
+        return true;
 }
 /////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
 void User::YesNo_Box(bool Yes_No, bool hide)
 {
-  if(hide !=false)
+  if(hide !=true)
   {
     if(Yes_No==true)//Se est√° no yes
     {
@@ -137,7 +143,16 @@ void User::YesNo_Box(bool Yes_No, bool hide)
           MakeASCII("Mainmenus/User/No.txt",111,38);
           Color(7);
         }
-  }
+  } else
+    {
+      int y=37;
+      for(size_t i=0;i<9;i++)
+      {
+        gotoxy(81,y);
+        cout<<"                                                 ";
+        y++;
+      }
+    }
 
 }
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -175,19 +190,81 @@ void User::Message(string message,int color,int variation,bool talk)//Message in
 }
 /////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
-void User::PremiumQuestion()
+void User::PremiumQuestion(bool wich, bool hide)
 {
-  Message("Soo, answer a simple question..",2,true);
-  sleep(2);
-  Message("What is the best Program produced in C++",2,true);
-
-  for(size_t i=0;i<9;i++)
+  if(hide==false)
   {
-    int y=37;
-    gotoxy(82,y);
-    cout<<"                                          ";
-    y++;
-  }
-  // MakeASCII("Mainmenus/Users/SpotCfy.txt",);
+    if(wich==true)//esquerdo
+    {
+      Color(3);
+      MakeBox(110,37,3,15);
+      Textcolor("SPOTCFY",3,114,39);
 
+      Color(2);
+      MakeBox(85,37,3,15);
+      Textcolor("SPOTCFY",2,89,39);
+      Color(7);
+    }
+      else
+      {
+        Color(3);
+        MakeBox(85,37,3,15);
+          Textcolor("SPOTCFY",3,89,39);
+
+        Color(2);
+        MakeBox(110,37,3,15);
+        Textcolor("SPOTCFY",2,114,39);
+        Color(7);
+      }
+  }
+  else
+  {
+    for(size_t i=0;i<4;i++)
+    {
+      int y = 36;
+      gotoxy(85,y);
+      cout<<"                                            ";
+      y++;
+    }
+  }
+}
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+void User::PremiumCourse(bool yesno)
+{
+    select->Play("from 0",500);
+    YesNo_Box(false,true);
+    Message("Soo, answer a simple question..",3,true);
+    sleep(1);
+    select->Play("from 0",300);
+    Message("What is the best Program produced in C++??",3,7,true);
+  bool premium=true;
+    PremiumQuestion(premium,false);
+    while(true)//Nested loop for Premium question
+    {
+      int key=_getch();
+      if(key==ENTER)
+      {
+        select->Play("from 0",200);
+        Message("Wright Answer!!",2,true);
+        PremiumQuestion(premium,true);
+        AtualUser->TurnPremium();
+        Message("Premium acquired!!!",2,true);
+        good->Play("from 0",300);
+        Textcolor("Premium Status: You are a fcking premium!!",3,83,34);
+        break;
+      }
+        else if(key == KEY_LEFT)
+        {
+          premium=true;
+          option->Play("from 0",300);
+          PremiumQuestion(premium,false);
+        }
+          else if(key== KEY_RIGHT)
+          {
+            premium=false;
+            option->Play("from 0",300);
+            PremiumQuestion(premium,false);
+          }
+    }
 }

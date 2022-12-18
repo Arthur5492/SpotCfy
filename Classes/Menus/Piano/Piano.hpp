@@ -11,9 +11,16 @@ private:
   string left;
   string right;
 
+  //USER
+  Login *User;
+  //Soundtrack
+  Music *PianoMenu;
 public:
-  Piano(){};//I dont need
-  ~Piano(){};
+  Piano(Login* userio) : User(userio){};//I dont need
+  ~Piano(){
+    delete PianoMenu;
+    delete User;
+  };
 
   void ConstructAll();// Executa todos as telas e dps o piano na mesma funcao
   void TopText();//Textos de cima

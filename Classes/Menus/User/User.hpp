@@ -24,8 +24,9 @@ public:
   void Name();
   void Username();
   void Password();
-  void Premium();
-  void PremiumQuestion();
+  bool Premium();
+  void PremiumQuestion(bool wich, bool hide);
+  void PremiumCourse(bool yesno);
 
   void YesNo_Box(bool Yes_No,bool hide);
 

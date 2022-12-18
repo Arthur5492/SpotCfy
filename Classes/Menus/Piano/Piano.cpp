@@ -2,9 +2,11 @@
 
 void Piano::ConstructAll()
 {
-  Music PianoMenu("soundtracks\\pianomenu.mp3","mp3","pianomenu");
-  PianoMenu.LoadMusic();
-  PianoMenu.Play("from 0",700);
+  if(User->GetStatus()!=1)
+  PianoMenu = new Music("soundtracks\\pianomenu.mp3","mp3","pianomenu");
+    else PianoMenu = new Music("soundtracks\\friendpiano.mp3","mp3","pianomenu");
+  PianoMenu->LoadMusic();
+  PianoMenu->Play("from 0",700);
   system("cls");
   Color(3);
   BigMenu();
@@ -21,7 +23,7 @@ void Piano::ConstructAll()
   RightSideText();
   gotoxy(98,11);
   _getch();
-  PianoMenu.Slowing("down",0);
+  PianoMenu->Slowing("down",0);
   entered->Play("from 0",200);
   ///
   MakeASCII("Mainmenus/Piano/piano.txt",48,18);
@@ -246,10 +248,17 @@ void Piano::Keys()
   int left= 4;
   int right = 5;
   Textcolor("                                     ",7,70,11);
+  if(User->GetStatus()!=1)
+  {
   Textcolor("Press ESC to exit! :(",4,75,11);
-
   Textcolor("single notes",2,76,16);
   Textcolor("        ",7,106,16);
+  }
+    else
+    {Textcolor("Press ESCto exit :)",4,75,11);
+    Textcolor("This is the only place you could be safe. I like hereherehereherehere",3,58,16);}
+
+
   gotoxy(80,27);
   while(true)
   {
@@ -537,7 +546,7 @@ void Piano::KeyS(string CurrentKey,int x1)
   CurrentKey= CurrentKey+".txt";
   Color(4);
   PickKey(CurrentKey,x1);
-  this_thread::sleep_for(chrono::milliseconds(50));
+  if(User->GetStatus()!=1)this_thread::sleep_for(chrono::milliseconds(50));
   Color(7);
   PickKey(CurrentKey,x1);
 }
@@ -664,7 +673,7 @@ void Piano::PlayCurrent(Music at,bool multiplenotes)
 {
   at.LoadMusic();
   at.Play("from 0",800);
-  if(multiplenotes==false)this_thread::sleep_for(chrono::milliseconds(100));
+  if(multiplenotes==false && User->GetStatus()==0)this_thread::sleep_for(chrono::milliseconds(100));
     // else this_thread::sleep_for(chrono::milliseconds(20));
 }
 //////////////////////////////////////////////////////////////////////////////////

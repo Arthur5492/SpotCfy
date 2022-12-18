@@ -93,3 +93,21 @@ void GetAcc::IDMAX()
   }else MessageBox(NULL, "Cannot open storage.txt file", "Error", MB_ICONERROR | MB_OK);
   idmax.close();
 }
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+void GetAcc::Modify(int IDnumber, string name, string username, string password, int premium, int status)
+{
+  string path = "Database/Accounts/"+to_string(IDnumber)+".txt";
+  ofstream AccModify(path);
+  // string stringid=to_string(IDnumber);
+  if(status!=0)AccModify<<"//////////////////////////////////////////SpotCfy:)&Tuizin//////////////////////////////////////////////////////////////////////"<<endl;
+    else AccModify<<"//////////////////////////////////////////SpotCfy&Tuizin//////////////////////////////////////////////////////////////////////"<<endl;
+  AccModify<<"Name:"<<name<<endl;
+  AccModify<<"Username:"<<username<<endl;
+  AccModify<<"Password:"<<password<<endl;
+  AccModify<<"Premium:"<<premium<<endl;
+  AccModify<<"Own Musics: ; ;"<<endl;//Still dont have
+  AccModify<<"Id:"<<IDnumber<<endl;
+
+  AccModify.close();
+}

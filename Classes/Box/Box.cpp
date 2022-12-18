@@ -97,7 +97,7 @@ void Box::Talk(string Text)
       continue;
     }
     cout<<Text.at(i);
-    if(Text.at(i)=='.' || Text.at(i)==',')
+    if(Text.at(i)=='.' || Text.at(i)==','|| Text.at(i)=='.'|| Text.at(i)=='?'|| Text.at(i)=='!')
     Wait(500);
       else
       {
@@ -112,8 +112,13 @@ void Box::Talk(string Text,int milliseconds)
   for(size_t i=0;i<Text.size();i++)
   {
     cout<<Text.at(i);
-    talk->Play("from 0",1000);
-    Wait(milliseconds);
+    if(Text.at(i)=='.' || Text.at(i)==','|| Text.at(i)=='.'|| Text.at(i)=='?'|| Text.at(i)=='!')
+    Wait(500);
+      else
+      {
+        talk->Play("from 0",1000);
+        Wait(milliseconds);
+      }
   }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////

@@ -46,6 +46,10 @@ protected:
   Music *sucefull = new Music("sys\\sucefull.wav","wav","sucefull");//Som de algo que deu certo
   Music *entered = new Music("sys\\entered.wav","wav","entered");//Som de quanto entra em algo
   Music *talk = new Music("sys\\talk.wav","wav","talk");// Som de fala
+  Music *good = new Music("sys\\good.wav","wav","good");//Som de deu bom
+  Music *block = new Music("sys\\block.wav","wav","block");//Som de bloqueado
+  Music *cancel = new Music("sys\\cancel.wav","wav","cancel");//Som de cancelar acao
+  Music *stagelight = new Music("sys\\stagelight.wav","wav","stagelight");
   public:
     Box()
     {
@@ -55,6 +59,10 @@ protected:
       sucefull->LoadMusic();
       talk->LoadMusic();
       entered->LoadMusic();
+      good->LoadMusic();
+      block->LoadMusic();
+      cancel->LoadMusic();
+      stagelight->LoadMusic();
     };
     ~Box()
     {
@@ -64,6 +72,10 @@ protected:
       delete sucefull;
       delete talk;
       delete entered;
+      delete good;
+      delete block;
+      delete cancel;
+      delete stagelight;
     };
     //Funcoes principais
     void MakeBox(int x,int y,int tall,int wdt); //Criar a Box

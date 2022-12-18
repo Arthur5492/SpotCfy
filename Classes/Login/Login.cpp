@@ -93,8 +93,8 @@ void Login::Inputs()
         select->Play("wait from 0",500);
 }
 ////////////////////////////////////////////////////////////////////////////////////////////
-  pair<bool,bool> Login::SelectOption()//Pair first ï¿½ para verificar se clicou em login ou register
-                                       //Pair second ï¿½ para ver se deu certo a checagem de login
+  pair<bool,bool> Login::SelectOption()//Pair first é para verificar se clicou em login ou register
+                                       //Pair second é para ver se deu certo a checagem de login
   {
     bool loginbutao = true; //Get users choice, starts in login screen
     bool registerbutao = false;//Get users choice
@@ -149,7 +149,7 @@ void Login::Inputs()
   }
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
-void Login::LoadUsersData()
+bool Login::LoadUsersData()
 {
   m_AllPass.erase(m_AllPass.begin(),m_AllPass.end());
   m_AllUsers.erase(m_AllUsers.begin(),m_AllUsers.end());
@@ -158,11 +158,17 @@ void Login::LoadUsersData()
   for(size_t i=0;i<=LoadAccount.GetIDMAX();i++)
   {
     Users.at(i).Load(i);
+    if(Users.at(i).GetStatus()==1)
+    {
+      SelectAccount(i);
+      return false;
+    }
     string temp =  Users.at(i).GetUsername();
     m_AllUsers.push_back(temp);
     string temp2 = Users.at(i).GetPassword();
     m_AllPass.push_back(temp2);
   }
+  return true;
 }
 ////////////////////////////////////////////////////////////////////////////////////////////
 bool Login::CheckUser()
@@ -172,13 +178,7 @@ bool Login::CheckUser()
   {
     if(m_AllUsers.at(i)==gets_username && m_AllPass.at(i)==gets_password)
     {
-      m_Name = Users.at(i).GetName();
-      m_Username = Users.at(i).GetUsername();
-      m_password = Users.at(i).GetPassword();
-      m_id = Users.at(i).GetID();
-      m_premium = Users.at(i).GetPremium();
-      m_ownmusics= Users.at(i).Getownmusics();
-
+      SelectAccount(i);
       Message("Welcome "+m_Name+"!!",2,true);
       LoginMusic->Slowing("down",0);
       delete LoginMusic;
@@ -199,23 +199,41 @@ bool Login::CheckUser()
 ////////////////////////////////////////////////////////////////////////////////////////////
 void Login::FirstLoginScreen()
 {
-  system("cls");
-  LoginMusic->LoadMusic();
-  LoginMusic->Play("from 0",500);
-  Logo();//Mostra logo
-  Color(11);
-  gotoxy(86,22);
-    cout<<"Welcome to SpotCfy!! \\o/";
-    OptionsBox();
+  bool friends = LoadUsersData();
+      system("cls");
+      if (m_status != 1)LoginMusic = new Music("soundtracks\\loginzada.mp3","mp3","login");
+        else LoginMusic = new Music("soundtracks\\cry.mp3","mp3","login");
+      LoginMusic->LoadMusic();
+      LoginMusic->Play("from 0",500);
+      Logo();//Mostra logo
+      Color(11);
+      gotoxy(86,22);
+        cout<<"Welcome to SpotCfy!! \\o/";
+        OptionsBox();
 
-  Message("Press enter to continue",3,3,false);
-    _getch();
-      select->Play("from 0",800);
-
-  Message("->->Hello! and welcome, today i will teach you how to navigate here<-<-",3,25,true);
-  _getch();
-    Message("First, you need to know some things",3,6,true);
-    _getch();
-      Message("Use the arrow up and down to navigate",3,8,true);
+      Message("Press enter to continue",3,3,false);
+        _getch();
+          select->Play("from 0",800);
+      if(friends==true)
+      {
+      Message("->->Hello! and welcome, today i will teach you how to navigate here<-<-",3,25,true);
       _getch();
+        Message("First, you need to know some things",3,6,true);
+        _getch();
+          Message("Use the arrow up and down to navigate",3,8,true);
+          _getch();
+      }
+
+}
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+void Login::SelectAccount(size_t i)
+{
+  m_Name = Users.at(i).GetName();
+  m_Username = Users.at(i).GetUsername();
+  m_password = Users.at(i).GetPassword();
+  m_id = Users.at(i).GetID();
+  m_premium = Users.at(i).GetPremium();
+  m_status = Users.at(i).GetStatus();
+  m_ownmusics= Users.at(i).Getownmusics();
 }

@@ -90,7 +90,8 @@ void Music::Slowing(string updown, int value)
       mciSendString(newvolume.c_str(),NULL,0,NULL);
       this_thread::sleep_for(chrono::milliseconds(30));
     }
-    PlayFunction("close");
+    if(m_volume ==0)
+      PlayFunction("close");
  }
 
 }
