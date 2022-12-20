@@ -1,5 +1,4 @@
 #include "User.hpp"
-
 void User::CompleteScreen()
 {
   UserBox();
@@ -8,8 +7,8 @@ void User::CompleteScreen()
   Name();
   Username();
   Password();
-  bool question = Premium();//Se true, n„o mostra mais nada
-  bool yesno=true;//true: ComeÁa com o da esquerda / false: o da direita
+  bool question = Premium();//Se true, n√£o mostra mais nada
+  bool yesno=true;//true: Come√ßa com o da esquerda / false: o da direita
 
 while(true)
  {

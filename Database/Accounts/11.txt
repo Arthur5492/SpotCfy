@@ -1,4 +1,7 @@
 //////////////////////////////////////////SpotCfy&Tuizin//////////////////////////////////////////////////////////////////////
-Users that we already have:12
-Remember, start counting from user 0 :D so 13 lovely users!
-Congratulations SpotCfy!!
+Name:Teste
+Username:testezada
+Password:testinho
+Premium:1
+Own Musics: ; ;
+Id:11

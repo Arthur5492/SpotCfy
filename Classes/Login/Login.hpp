@@ -124,5 +124,26 @@ class Login : public Box
       m_status = 1;
       LoadAccount.Modify(m_id,m_Name,m_Username,m_password,m_premium,m_status);
     }
+
+    void Gambiarra(bool stop)
+    {
+      Music *Credits;
+      if(stop==false)
+      {
+      if(m_status!=1){
+        Credits = new Music("soundtracks\\Credits.mp3","mp3","credits");
+      }
+        else{
+          Credits = new Music("soundtracks\\cry.mp3","mp3","credit");
+        }
+        Credits->LoadMusic();
+        Credits->Play("from 0",600);
+      }
+        else
+        {
+          Credits->Slowing("down",0);
+          // delete Credits;
+        }
+    }
 };
 #endif

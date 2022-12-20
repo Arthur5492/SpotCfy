@@ -15,7 +15,9 @@ Login *AtualUser;
 
 public:
   User(Login* us) :AtualUser(us)  {};
-  ~User(){};
+  ~User(){
+    delete AtualUser;
+  };
 
   void CompleteScreen();//Complete Screen
   void UserBox();//User box
@@ -29,6 +31,7 @@ public:
   void PremiumCourse(bool yesno);
 
   void YesNo_Box(bool Yes_No,bool hide);
+
 
 
 

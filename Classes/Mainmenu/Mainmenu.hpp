@@ -23,13 +23,14 @@ class Mainmenu : public Box
 void Message(string message, int color,bool talk);//Dar string na parte de input, Se fala for true fala pausado,
 void Message(string message, int color,bool talk, int slow);//slow varia a velocidade da fala
 
-////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////// ///////////////////////////////////
   protected:
     char m_option1; //Pre selecione o numero do usuario
     char m_selected=' ';//Execute quando ele pressionar enter
     //Theses Opens are for check if option got   selected
     bool AnyOpen=false;//If any Open got true
     int WichSelected=0;
+    int ReturnedOption=0;
 ////////////////////////////////////////////////////////////////////////////////////////////
 public:
   Mainmenu(Login* User): m_User(User){};
@@ -41,16 +42,16 @@ public:
   ////////////////////////////////////////////////////////////////////////////////////////////
   ///Mainmenu Parts
   //Header
-  void Logos();//CONFIGURAÇÕES DA LOGO SPOCFY
-  void Search();//CONFIGURAÇÕES DA PARTE SEARCH
-  void PublicPlaylist(); //PUBLIC PLAYLIST CONFIGS, são pra mostrar as pastas com cada gênero
-  void User();//CONFIGURAÇÕES DA PARTE USER DO HEADER
+  void Logos();//CONFIGURAÃ‡OES DA LOGO SPOCFY
+  void Search();//CONFIGURAÃ‡OES DA PARTE SEARCH
+  void PublicPlaylist(); //PUBLIC PLAYLIST CONFIGS, sÃ£o pra mostrar as pastas com cada gï¿½nero
+  void User();//CONFIGURAÃ‡OES DA PARTE USER DO HEADER
 
   //Bottom:
   void RandomMusic();
   void Creator();
   void Piano();
-  void Options();
+  int Options();
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////
   void CompleteHeader()//Complete Header
@@ -68,7 +69,7 @@ public:
     RandomMusic();
     Creator();
     Piano();
-    Options();
+    ReturnedOption = Options();
 
   }
 //////////////////////////
@@ -79,7 +80,7 @@ public:
   int CompleteMain(bool opened_again)//Complete Menu
   {
     WichSelected =0;
-    AnyOpen = false;
+      AnyOpen = false;
     m_option1 = ' ';//Guarda qual tecla foi clicada
     m_selected =' ';
     if(opened_again)
@@ -112,6 +113,11 @@ public:
           CompleteHeader();//Agora printa com corzinha verde
           CompleteBottom();//Agora printa com corzinha verde
           gotoxy(2,18);
+          if(ReturnedOption==7)
+          {
+            // Slowing()
+            return 7;
+          }
           continue;
         } else
           {
@@ -130,7 +136,7 @@ public:
   }
 
   //Getter
-    int GetWichSelected(){return WichSelected; } ;
+    int GetReturnedOption(){return ReturnedOption; } ;
 //End class
 };
 

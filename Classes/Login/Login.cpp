@@ -93,8 +93,8 @@ void Login::Inputs()
         select->Play("wait from 0",500);
 }
 ////////////////////////////////////////////////////////////////////////////////////////////
-  pair<bool,bool> Login::SelectOption()//Pair first é para verificar se clicou em login ou register
-                                       //Pair second é para ver se deu certo a checagem de login
+  pair<bool,bool> Login::SelectOption()//Pair first ï¿½ para verificar se clicou em login ou register
+                                       //Pair second ï¿½ para ver se deu certo a checagem de login
   {
     bool loginbutao = true; //Get users choice, starts in login screen
     bool registerbutao = false;//Get users choice
@@ -202,7 +202,7 @@ void Login::FirstLoginScreen()
   bool friends = LoadUsersData();
       system("cls");
       if (m_status != 1)LoginMusic = new Music("soundtracks\\loginzada.mp3","mp3","login");
-        else LoginMusic = new Music("soundtracks\\cry.mp3","mp3","login");
+        else LoginMusic = new Music("soundtracks\\welcome_again.mp3","mp3","login");
       LoginMusic->LoadMusic();
       LoginMusic->Play("from 0",500);
       Logo();//Mostra logo

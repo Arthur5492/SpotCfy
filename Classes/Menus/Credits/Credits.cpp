@@ -52,3 +52,19 @@ void Credits::You()
   MakeASCII("Mainmenus/Credits/You.txt",73,18);
   Color(7);
 }
+
+void Credits::Thx()
+{
+  system("cls");
+  CreditsLogo();
+  Color(2);
+  MakeASCII("Mainmenus/Credits/Thx.txt",70,18);
+  Color(7);
+}
+
+void Credits::Thx2()
+{
+  Color(5);
+  MakeASCII("Mainmenus/Credits/Thx2.txt",70,25);
+  Color(7);
+}

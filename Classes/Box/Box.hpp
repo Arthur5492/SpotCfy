@@ -19,6 +19,7 @@
 #include <sstream>
 #include <cctype>
 #include <locale.h>
+#include <vector>
 
 #include "../Music\Music.cpp"//Pra toca musica
 #include "../../Misc/definenotes.hpp" //Transforma frequencia das notas em string ex: A4 = 440

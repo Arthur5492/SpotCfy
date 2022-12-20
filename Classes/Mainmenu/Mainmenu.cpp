@@ -159,7 +159,7 @@ void Mainmenu::Piano()
       Color(7);//Fica branco
 }
 ////////////////////////////////////////////////////////////////////////////////////////////
-void Mainmenu::Options()
+int Mainmenu::Options()
 {
   bool option2=false;//For nested while
   MakeBox(big_wdt-20,big_y+19,22,21);//Box de options
@@ -178,8 +178,11 @@ void Mainmenu::Options()
     }
     gotoxy(big_wdt-15,22);//Para printar abaixo
       cout<<"7.Options:";
+      if(m_User->GetStatus()!=1)
+      {
         gotoxy(big_wdt-19,24);
-          cout<<"1.Credits";
+       cout<<"1.Credits";
+      }
             gotoxy(big_wdt-19,27);
               cout<<"2.Back to menu";
                gotoxy(big_wdt-19,30);
@@ -194,8 +197,11 @@ void Mainmenu::Options()
       if(m_User->GetStatus()!=1)
       Message("Cool you wanna see the Credits ;D, cmmon select a Number Please",2,false);
       else Message("Cool you wanna talk with mee, cmmon select a Number 00000 Pleaseplease",2,true);
+      if(m_User->GetStatus()!=1)
+      {
         gotoxy(big_wdt-19,24);//Make 1 in options blue
-          cout<<"1";
+        cout<<"1";
+      }
             gotoxy(big_wdt-19,27);//Make 2 in options blue
               cout<<"2";
                 gotoxy(big_wdt-19,30);//Make 0 in options blue
@@ -207,6 +213,8 @@ void Mainmenu::Options()
       {
         ch = _getch();
 
+      if(m_User->GetStatus()!=1)
+      {
         if(ch=='1')
         {
           WichSelected = 7;
@@ -214,6 +222,7 @@ void Mainmenu::Options()
           m_selected=' ';
           break;
         }
+      }
 
         if(ch=='2')
         {
@@ -317,14 +326,15 @@ void Mainmenu::Options()
             sleep(1);
             stagelight->Play("from 0",20);
             system("cls");
-            Wait(1500);
-            Last->Play("from 0",700);
-            break;
+            sleep(2);
+            ReturnedOption=7;
+            return 7;
           }
         }
       }
     }
   Color(7);//Fica branco
+  return 0;
 }
 ////////////////////////////////////////////////////////////////////////////////////////////
 void Mainmenu::Message(string message,int color,bool talk)//Message in a static location, with a color

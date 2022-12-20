@@ -18,8 +18,8 @@ protected:
 
   string MusicPath;
   string m_FormatType;
-  string MusicAlias;//Nome definido na fuction Load para usar nas outras funções
-  int    m_volume; //Volume atual da música
+  string MusicAlias;//Nome definido na fuction Load para usar nas outras funï¿½ï¿½es
+  int    m_volume; //Volume atual da mï¿½sica
 public:
   Music(): MusicPath(""),m_FormatType(""),MusicAlias(""){};
 
