@@ -1,5 +1,7 @@
 # DESCRIÇÃO
 
+ENGLISH:
+
 SpotCfy was first made to be a Music Player in C++, but ideas were appearing, and i decided to create a completly piano fully maded in C++, and some type of "game", or talking game, that starts when you leave the program, and entering after.
 
 WORKS ONLY IN WINDOWS CMD CONSOLE
@@ -8,12 +10,9 @@ WORKS ONLY IN WINDOWS CMD CONSOLE
 -After exiting, the console width will get back to normal width.
 
 
+PORTUGUÊS:
 
 SpotCfy foi primeiramente feito para ser um Music Player em C++, mas ideias apareceram, e decidi criar um piano totalmente funcional, feito completamente em c++, e tambem, um tipo de "jogo", ou uma espécie de conversa, que começa ao fechar o programa, e entrar posteriormente.
-
-
-
-
 
 FUNCIONA SOMENTE EM WINDOWS CMD CONSOLE
 
