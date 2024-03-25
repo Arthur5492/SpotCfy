@@ -162,7 +162,7 @@ void Piano::RightSideText()
 
   Textcolor("Left Side Keys",2,134,20);
 //
-  Textcolor("Press shift + 1 and number to transpose to:",3,120,22);
+  Textcolor("Press shift + 2 and number to transpose to:",3,120,22);
   Transpose(5,135,24);
 
 // //////////////////////////////////////Notes
