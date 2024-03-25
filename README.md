@@ -24,13 +24,15 @@ SpotCfy initially began as a C++ Music Player. However, as new ideas emerged, it
 ## Project Visuals
 
 ### Login Screen
-
-![Login Screen](path/to/login_screen.jpg)
+![imagem_2024-03-25_002748692](https://github.com/Arthur5492/SpotCfy/assets/61064101/5872e563-68cb-48ef-828e-0418b4fc5916)
 
 ### Main Menu
+[![Main Menu](path/to/main_menu.jpg)](https://github.com/Arthur5492/SpotCfy/assets/61064101/abceb675-dfe9-4fa8-9c45-d637781b4a61)
 
-![Main Menu](path/to/main_menu.jpg)
+### Piano Demonstration 
+https://github.com/Arthur5492/SpotCfy/assets/61064101/52a12a93-b651-469d-93e0-d8211bd0e0bb
 
-### Piano Interface
 
-![Piano Interface](path/to/piano_interface.jpg)
+
+
+
