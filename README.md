@@ -1,23 +1,36 @@
-# DESCRIÇÃO
+# SpotCfy
 
-ENGLISH:
+## About the Project
 
-SpotCfy was first made to be a Music Player in C++, but ideas were appearing, and i decided to create a completly piano fully maded in C++, and some type of "game", or talking game, that starts when you leave the program, and entering after.
-
-WORKS ONLY IN WINDOWS CMD CONSOLE
--when starting, the program will set your console to 211x49 width
--You need at least a 1280x720 screen or above
--After exiting, the console width will get back to normal width.
+SpotCfy initially began as a C++ Music Player. However, as new ideas emerged, it evolved into a project encompassing a complete piano entirely crafted in C++, and a unique type of "talking game" that activates when you exit and re-enter the program.
 
 
-PORTUGUÊS:
+## Command for compilation:
+<code>g++ *.cpp -o SpotCfy -lwinmm</code>
 
-SpotCfy foi primeiramente feito para ser um Music Player em C++, mas ideias apareceram, e decidi criar um piano totalmente funcional, feito completamente em c++, e tambem, um tipo de "jogo", ou uma espécie de conversa, que começa ao fechar o programa, e entrar posteriormente.
 
-FUNCIONA SOMENTE EM WINDOWS CMD CONSOLE
+## Features
 
--Ao iniciar o programa seu console sera setado para o tamanho de 211 colunas, e 49 linhas
--Funciona bem até telas de tamanho 1280x720
--Ao fechar, o tamanho original voltará ao tamanho normal.
+- **Music Player**: Enjoy your favorite tunes in a custom-built music environment.
+- **Full Piano**: Engage with a fully functional piano created in C++.
+- **Talking Game**: Experience a novel interaction through a conversational game triggered by program re-entry.
 
-Obrigado
+## Requirements
+
+- **Compatibility**: Only works within the Windows CMD console(windows terminal host).
+- **Screen Resolution**: Requires a minimum screen resolution of 1280x720.
+- **GNU Compiler**: A GNU compiler is necessary to compile and run C++ code.
+
+## Project Visuals
+
+### Login Screen
+
+![Login Screen](path/to/login_screen.jpg)
+
+### Main Menu
+
+![Main Menu](path/to/main_menu.jpg)
+
+### Piano Interface
+
+![Piano Interface](path/to/piano_interface.jpg)
