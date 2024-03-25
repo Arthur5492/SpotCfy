@@ -11,7 +11,6 @@ SpotCfy initially began as a C++ Music Player. However, as new ideas emerged, it
 
 ## Features
 
-- **Music Player**: Enjoy your favorite tunes in a custom-built music environment.
 - **Full Piano**: Engage with a fully functional piano created in C++.
 - **Talking Game**: Experience a novel interaction through a conversational game triggered by program re-entry.
 
