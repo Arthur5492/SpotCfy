@@ -1,5 +1,5 @@
 # SpotCfy
-
+![imagem_2024-03-25_002748692](https://github.com/Arthur5492/SpotCfy/assets/61064101/5872e563-68cb-48ef-828e-0418b4fc5916)
 ## About the Project
 
 SpotCfy initially began as a C++ Music Player. However, as new ideas emerged, it evolved into a project encompassing a complete piano entirely crafted in C++, and a unique type of "talking game" that activates when you exit and re-enter the program.
@@ -21,9 +21,6 @@ SpotCfy initially began as a C++ Music Player. However, as new ideas emerged, it
 - **GNU Compiler**: A GNU compiler is necessary to compile and run C++ code.
 
 ## Project Visuals
-
-### Login Screen
-![imagem_2024-03-25_002748692](https://github.com/Arthur5492/SpotCfy/assets/61064101/5872e563-68cb-48ef-828e-0418b4fc5916)
 
 ### Main Menu
 [![Main Menu](path/to/main_menu.jpg)](https://github.com/Arthur5492/SpotCfy/assets/61064101/abceb675-dfe9-4fa8-9c45-d637781b4a61)
